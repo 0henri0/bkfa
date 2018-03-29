@@ -54,23 +54,24 @@
                   </td>
                   <td>
                     <div class="mrg-top-15">
-                      <h5>{{$m->ten}}</h5>
+                      <h5>@php echo $m->ten @endphp</h5>
                     </div>
                   </td>
                   <td>
                     <div class="mrg-top-15">
-                      <h5>{{$m->mahocphan}}</h5>
+                      <h5>@php echo $m->mahocphan @endphp</h5>
                     </div>
                   </td>
                   <td>
                     <div class="mrg-top-15">
-                      <h5>{{$m->vien}}</h5>
+                      <h5>@php echo $m->vien @endphp</h5>
                     </div>
                   </td>
                   <td>
                     <div class="mrg-top-15">
+
                       <div class="thumbnail">
-                        <h5>{{cutstring($m->gioithieu, 20)}}</h5>
+                        <h5>{{cutString($m->gioithieu, 50)}}</h5>
                         <p>{{$m->gioithieu}}</p>
                       </div>
                     </div>
@@ -106,10 +107,10 @@
                   <td>
                     <div class="mrg-top-15">
                       <a href="admin/mon/sua/{{$m->idmon}}" title="sửa môn">
-                      <button class="btn btn-icon btn-flat btn-rounded dropdown-toggle"> 
-                        <h3 class="ti-pencil-alt"></h3>
-                      </button>
-                    </a>
+                        <button class="btn btn-icon btn-flat btn-rounded dropdown-toggle"> 
+                          <h3 class="ti-pencil-alt"></h3>
+                        </button>
+                      </a>
 
                     </div>
                   </td>            

@@ -28,8 +28,7 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="form-group">
                     <label>Viện</label>
-                    <select class="form-control" name="vien" id="vien">
-                       <option value="0">- - - Chọn viện - - 	-</option>
+                    <select class="form-control" name="idVien" id="idVien">
                        @foreach ($vien as $v)
                        <option value="{{$v->idvien}}">{{$v->ten}}</option>
                        @endforeach

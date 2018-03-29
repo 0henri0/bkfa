@@ -25,13 +25,21 @@ class monController extends Controller
 		 $this->validate(
             $request, 
             [
-               'tenMon' => 'required|min:3|max:100|unique:mons,ten'
+               'tenMon' => 'required|min:3|max:100|unique:mons,ten',
+               'gioithieu' => 'required|min:10',
+               'ghichu' => 'required|min:10',
+               'mahocphan' =>'required',
             ],
             [
                'tenMon.required' => 'Bạn chưa nhập tên môn',
                'tenMon.min' => 'Tên môn phải có độ dài từ 3 đến 100 ký tự',
                'tenMon.max' => 'Tên môn phải có độ dài từ 3 đến 100 ký tự',
                'tenMon.unique' => 'Tên môn đã tồn tại',
+               'gioithieu.required' => 'Bạn chưa nhập giới thiệu',
+               'gioithieu.min' => 'giới thiệu phải có độ dài từ 10 ký tự',
+               'ghichu.required' => 'Bạn chưa nhập ghi chú',
+               'mahocphan.required' =>'Bạn chưa nhập mã học phần',
+               'ghichu.min' => 'nhập ghi chú lớn hơn 10 kí tự.'
             ]
          );
 
@@ -41,7 +49,7 @@ class monController extends Controller
          $mon->mahocphan = $request->mahocphan;
          $mon->gioithieu = $request->gioithieu;
          $mon->ghichu = $request->ghichu;
-         $mon->idvien = $request->vien;
+         $mon->idvien = $request->idVien;
          $mon->save();
 
          return redirect('admin/mon/danhsach')->with('thongbao','Thêm thành công '.$request->tenVien);
@@ -58,22 +66,22 @@ class monController extends Controller
          $this->validate(
             $request, 
             [
-               'tenMon' => 'required|min:3|max:100|unique:mons,ten'
+               'gioithieu' => 'required|min:10',
+               'ghichu' => 'required|min:10'
             ],
             [
-               'tenMon.required' => 'Bạn chưa nhập tên môn',
-               'tenMon.min' => 'Tên môn phải có độ dài từ 3 đến 100 ký tự',
-               'tenMon.max' => 'Tên môn phải có độ dài từ 3 đến 100 ký tự',
-               'tenMon.unique' => 'Tên môn đã tồn tại',
+               'gioithieu.required' => 'Bạn chưa nhập giới thiệu',
+               'gioithieu.min' => 'nhập giới thiệu lớn hơn 10 kí tự.',
+               'ghichu.required' => 'Bạn chưa nhập ghi chú',
+               'ghichu.min' => 'nhập ghi chú lớn hơn 10 kí tự.'
             ]
          );
-
       $mon->ten = $request->tenMon;
       $mon->tenkhongdau = changeTitle($request->tenMon);
       $mon->mahocphan = $request->mahocphan;
       $mon->gioithieu = $request->gioithieu;
       $mon->ghichu = $request->ghichu;
-      $mon->idvien = $request->vien;
+      $mon->idvien = $request->idVien;
       $mon->save();
       return redirect('admin/mon/danhsach')->with('thongbao','Sửa thành công '.$request->tenMon);
 	}
